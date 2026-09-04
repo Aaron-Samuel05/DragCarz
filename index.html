@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#05040b" />
+  <title>DRAGCARZ — Miami Night Racing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="DragCarz home">
+        <span class="brand-mark">DC</span>
+        <span class="brand-copy"><strong>DRAG</strong>CARZ<span class="dot">.</span></span>
+      </a>
+      <div class="topbar-center">
+        <span class="eyebrow">MIAMI NIGHT SERIES</span>
+        <span id="eventName">SUNSET STRIP // LEVEL 01</span>
+      </div>
+      <div class="topbar-right">
+        <div class="currency"><span>CR</span><strong id="credits">2500</strong></div>
+        <button class="icon-button" id="soundBtn" aria-label="Toggle sound">♫</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="garage" class="screen active">
+        <div class="hero-copy">
+          <div>
+            <p class="kicker">NIGHT RUNNERS // MIAMI, FL</p>
+            <h1>BUILD YOUR<br><em>STREET LEGEND.</em></h1>
+            <p class="lede">Ten machines. Sixteen levels. One strip where reaction time beats everything.</p>
+          </div>
+          <div class="hero-badge"><span>01</span><small>CHOOSE<br>YOUR RIDE</small></div>
+        </div>
+
+        <div class="garage-grid">
+          <div class="car-list" id="carList"></div>
+          <div class="car-stage">
+            <div class="city-glow"></div>
+            <div class="palm palm-a"></div><div class="palm palm-b"></div>
+            <div class="car-art" id="carArt" aria-label="Selected car preview"></div>
+            <div class="car-shadow"></div>
+            <div class="stage-info">
+              <div><span class="eyebrow">SELECTED</span><h2 id="selectedName">NEON RX-7</h2></div>
+              <div class="rarity" id="selectedRarity">STREET</div>
+            </div>
+          </div>
+          <aside class="spec-card">
+            <div class="spec-heading"><span>VEHICLE DATA</span><span id="carIndex">01 / 10</span></div>
+            <div class="big-stat"><span>0–100</span><strong id="statAccel">3.2</strong><small>SEC</small></div>
+            <div class="bars">
+              <div><span>LAUNCH</span><i><b id="barLaunch"></b></i></div>
+              <div><span>SHIFT</span><i><b id="barShift"></b></i></div>
+              <div><span>GRIP</span><i><b id="barGrip"></b></i></div>
+              <div><span>NITRO</span><i><b id="barNitro"></b></i></div>
+            </div>
+            <div class="tune-note" id="tuneNote">Balanced street build with a quick launch.</div>
+            <button class="primary-button" id="raceBtn">RACE THIS CAR <span>→</span></button>
+          </aside>
+        </div>
+      </section>
+
+      <section id="race" class="screen race-screen">
+        <canvas id="raceCanvas"></canvas>
+        <div class="race-overlay">
+          <div class="race-top">
+            <div><span class="eyebrow">LEVEL <span id="levelNo">01</span> // NIGHT RUN</span><strong id="trackName">OCEAN DRIVE SPRINT</strong></div>
+            <div class="distance"><span>FINISH</span><strong id="distanceValue">0 M</strong></div>
+          </div>
+          <div class="ladder" id="ladder"></div>
+          <div class="shift-zone" id="shiftZone">
+            <div class="shift-hint">TAP / SPACE TO SHIFT</div>
+            <div class="rpm"><span id="rpmValue">4800</span><small>RPM</small></div>
+            <div class="rpm-bar"><i id="rpmBar"></i><b></b></div>
+            <div class="timing-band"><span>PERFECT</span></div>
+          </div>
+          <div class="race-bottom">
+            <div class="gear"><small>GEAR</small><strong id="gearValue">1</strong></div>
+            <div class="speed"><strong id="speedValue">000</strong><span>KM/H</span></div>
+            <div class="nitro-wrap">
+              <span>NITRO</span><div class="nitro-bar"><i id="nitroBar"></i></div><button id="nitroBtn">N<span>2</span>O</button>
+            </div>
+          </div>
+          <div class="countdown" id="countdown">3</div>
+          <div class="race-toast" id="raceToast"></div>
+        </div>
+      </section>
+
+      <section id="result" class="screen result-screen">
+        <div class="result-backdrop"></div>
+        <div class="result-card">
+          <p class="kicker" id="resultKicker">LEVEL COMPLETE</p>
+          <h1 id="resultTitle">CLEAN<br><em>GETAWAY.</em></h1>
+          <div class="result-time"><span>YOUR TIME</span><strong id="resultTime">08.42</strong><small>SEC</small></div>
+          <div class="result-grid">
+            <div><span>PLACE</span><strong id="resultPlace">1ST</strong></div>
+            <div><span>REWARD</span><strong id="resultReward">+750 CR</strong></div>
+            <div><span>BEST SHIFT</span><strong id="resultShift">PERFECT × 5</strong></div>
+          </div>
+          <div class="result-actions">
+            <button class="secondary-button" id="garageBtn">BACK TO GARAGE</button>
+            <button class="primary-button" id="nextBtn">NEXT LEVEL <span>→</span></button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
